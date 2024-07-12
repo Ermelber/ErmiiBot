@@ -32,5 +32,5 @@ static class Program
     }
 
     private static IServiceCollection AddCommands(this IServiceCollection collection)
-        => collection.AddSingleton<IBotCommand, TestCommand>();
+        => collection.AddSingleton<BotCommand, TestCommand>();
 }

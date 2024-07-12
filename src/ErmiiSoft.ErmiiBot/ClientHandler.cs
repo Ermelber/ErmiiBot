@@ -4,7 +4,7 @@ using ErmiiSoft.ErmiiBot.Commands;
 
 namespace ErmiiSoft.ErmiiBot;
 
-class ClientHandler(DiscordSocketClient client, IEnumerable<IBotCommand> botCommands)
+class ClientHandler(DiscordSocketClient client, IEnumerable<BotCommand> botCommands)
 {
     private const string DISCORD_BOT_TOKEN_ENV_VAR_KEY = "DiscordBotToken";
 
@@ -47,11 +47,11 @@ class ClientHandler(DiscordSocketClient client, IEnumerable<IBotCommand> botComm
                 try
                 {
                     await guild.CreateApplicationCommandAsync(builder.Build());
-                    Console.WriteLine($"Registered '{builder.Name}' to '{guild.Name}'.");
+                    await WriteLogAsync($"Registered '{builder.Name}' to '{guild.Name}'.");
                 }
                 catch
                 {
-                    Console.WriteLine($"Failed to register '{builder.Name}' to guildName '{guild.Name}'.");
+                    await WriteLogAsync($"Failed to register '{builder.Name}' to guildName '{guild.Name}'.");
                 }
             }
         }
@@ -65,12 +65,13 @@ class ClientHandler(DiscordSocketClient client, IEnumerable<IBotCommand> botComm
     }
 
     private async Task OnClientReadyAsync()
-    {
-        await ConfigureCommandsAsync();
-    }
+        => await ConfigureCommandsAsync();
 
     private async Task OnLogAsync(LogMessage logMessage)
         => await WriteLogAsync(logMessage.Severity, logMessage.Message);
+
+    private async Task WriteLogAsync(string message)
+        => await WriteLogAsync(LogSeverity.Info, message);
 
     private async Task WriteLogAsync(LogSeverity severity, string message)
     {
