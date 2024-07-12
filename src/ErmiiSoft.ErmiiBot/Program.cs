@@ -32,6 +32,6 @@ static class Program
     }
 
     private static IServiceCollection AddCommands(this IServiceCollection collection) => collection
-        .AddSingleton<BotCommand, TestCommand>()
-        .AddSingleton<BotCommand, UptimeCommand>();
+        .AddSingleton<BotCommand, UptimeCommand>()
+        .AddSingleton<BotCommand, PizzaCommand>();
 }

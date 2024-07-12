@@ -11,4 +11,29 @@
     <PackageReference Include="Humanizer" Version="2.14.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\Images\Pizza\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Images\Pizza\calzone-ripieno.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Pizza\margherita-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Pizza\margherita-2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Pizza\pizza-fritta-ricotta-e-salame-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Pizza\pizza-prosciutto-e-funghi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Pizza\salsicce-e-friarielli.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
