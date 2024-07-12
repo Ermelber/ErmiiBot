@@ -7,6 +7,8 @@ class ClientHandler(DiscordSocketClient client)
 {
     private const string DISCORD_BOT_TOKEN_ENV_VAR_KEY = "DiscordBotToken";
 
+    private bool _isInitialized = false;
+
     public async Task ConfigureAsync()
     {
         string? token = Environment.GetEnvironmentVariable(DISCORD_BOT_TOKEN_ENV_VAR_KEY);
@@ -24,11 +26,15 @@ class ClientHandler(DiscordSocketClient client)
         };
 
         await client.LoginAsync(TokenType.Bot, token);
-        return;
+
+        _isInitialized = true;
     }
 
     public async Task RunAsync()
     {
+        if (!_isInitialized)
+            return;
+
         await client.StartAsync();
         await Task.Delay(Timeout.Infinite);
     }

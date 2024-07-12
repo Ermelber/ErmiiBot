@@ -29,5 +29,4 @@ class Program
 
         return collection.BuildServiceProvider();
     }
-
 }
