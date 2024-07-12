@@ -31,6 +31,7 @@ static class Program
         return collection.BuildServiceProvider();
     }
 
-    private static IServiceCollection AddCommands(this IServiceCollection collection)
-        => collection.AddSingleton<BotCommand, TestCommand>();
+    private static IServiceCollection AddCommands(this IServiceCollection collection) => collection
+        .AddSingleton<BotCommand, TestCommand>()
+        .AddSingleton<BotCommand, UptimeCommand>();
 }

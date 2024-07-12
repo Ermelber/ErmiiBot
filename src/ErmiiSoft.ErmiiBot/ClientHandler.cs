@@ -59,9 +59,16 @@ class ClientHandler(DiscordSocketClient client, IEnumerable<BotCommand> botComma
 
     private async Task OnSlashCommandExecuted(SocketSlashCommand command)
     {
-        var botCommand = botCommands.First(x => x.SlashCommandBuilder.Name == command.CommandName);
-        Console.WriteLine($"Processing slash command '{command.CommandName}' from user '{command.User.Id}' in channel '{command.Channel.Id}'.");
-        await botCommand.ExecuteAsync(command);
+        try
+        {
+            await WriteLogAsync($"Processing slash command '{command.CommandName}' from user '{command.User.Id}' in channel '{command.Channel.Id}'.");
+            var botCommand = botCommands.First(x => x.SlashCommandBuilder.Name == command.CommandName);
+            await botCommand.ExecuteAsync(command);
+        }
+        catch (Exception ex)
+        {
+            await WriteLogAsync(LogSeverity.Error, $"Command '{command.CommandName}': {ex.Message}");
+        }
     }
 
     private async Task OnClientReadyAsync()
