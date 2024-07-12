@@ -1,21 +1,33 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using Microsoft.Extensions.DependencyInjection;
 
-string? token = Environment.GetEnvironmentVariable("DiscordBotToken");
+namespace ErmiiSoft.ErmiiBot;
 
-if (string.IsNullOrEmpty(token))
+class Program
 {
-    Console.WriteLine("Please provide a bot token inside the \"DiscordBotToken\" environment variable.");
-    return;
+    private static async Task Main(string[] args)
+    {
+        var serviceProvider = CreateServiceProvider();
+
+        var clientHandler = serviceProvider.GetService<ClientHandler>();
+
+        if (clientHandler is null)
+            return;
+
+        await clientHandler.ConfigureAsync();
+        await clientHandler.RunAsync();
+    }
+
+    private static IServiceProvider CreateServiceProvider()
+    {
+        var config = new DiscordSocketConfig();
+        var collection = new ServiceCollection()
+            .AddSingleton(config)
+            .AddSingleton<DiscordSocketClient>()
+            .AddSingleton<ClientHandler>();
+
+        return collection.BuildServiceProvider();
+    }
+
 }
-
-var client = new DiscordSocketClient();
-
-client.Log += async (logMessage) =>
-{
-    Console.WriteLine($"[{DateTime.Now}] {logMessage.Severity}: {logMessage.Message}");
-};
-
-await client.LoginAsync(TokenType.Bot, token);
-await client.StartAsync();
-await Task.Delay(Timeout.Infinite);
