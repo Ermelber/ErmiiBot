@@ -23,9 +23,11 @@ static class Program
         var config = new DiscordSocketConfig();
 
         var collection = new ServiceCollection()
+            .AddSingleton<LoggerService>()
             .AddSingleton(config)
             .AddSingleton<DiscordSocketClient>()
             .AddSingleton<ClientHandler>()
+            .AddSingleton<CommandHandler>()
             .AddCommands();
 
         return collection.BuildServiceProvider();
