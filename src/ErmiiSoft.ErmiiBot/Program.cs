@@ -1,4 +1,5 @@
-﻿using Discord.WebSocket;
+﻿using CronNET;
+using Discord.WebSocket;
 using ErmiiSoft.ErmiiBot.Commands;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,9 +25,11 @@ static class Program
 
         var collection = new ServiceCollection()
             .AddSingleton<LoggerService>()
+            .AddSingleton<ICronDaemon, CronDaemon>()
             .AddSingleton(config)
             .AddSingleton<DiscordSocketClient>()
             .AddSingleton<ClientHandler>()
+            .AddSingleton<ScheduleHandler>()
             .AddSingleton<CommandHandler>()
             .AddCommands();
 

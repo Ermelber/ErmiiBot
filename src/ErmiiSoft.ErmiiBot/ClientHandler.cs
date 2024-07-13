@@ -4,7 +4,7 @@ using ErmiiSoft.ErmiiBot.Commands;
 
 namespace ErmiiSoft.ErmiiBot;
 
-class ClientHandler(DiscordSocketClient client, LoggerService log, CommandHandler commands)
+class ClientHandler(DiscordSocketClient client, LoggerService log, CommandHandler commands, ScheduleHandler schedule)
 {
     private const string DISCORD_BOT_TOKEN_ENV_VAR_KEY = "DiscordBotToken";
 
@@ -37,8 +37,9 @@ class ClientHandler(DiscordSocketClient client, LoggerService log, CommandHandle
     private async Task OnClientReadyAsync()
     {
         await commands.ConfigureAsync();
+        await schedule.ConfigureAsync();
     }
 
     private async Task OnLogAsync(LogMessage logMessage)
-        => await log.WriteLogAsync(logMessage.Severity, logMessage.Message);
+        => await log.WriteAsync(logMessage.Severity, logMessage.Message);
 }
