@@ -1,7 +1,7 @@
 [
   {
     "name": "juice_1",
-    "cronExpression": "0 22 * * Tue,Thu,Sun",
+    "cronExpression": "0 22 * * 2,4,0",
     "guildId": 218690473953329152,
     "channelId": 475377868738920448,
     "text": "<@&572540171678121984> Remember to drink your vitamin C juice today! Stay healthy and energized! 🍊✨",
@@ -18,7 +18,7 @@
   },
   {
     "name": "juice_2",
-    "cronExpression": "0 22 * * Mon,Sat",
+    "cronExpression": "0 22 * * 1,6",
     "guildId": 218690473953329152,
     "channelId": 475377868738920448,
     "text": "<@&572540171678121984> Get your daily dose of vitamin C juice! Stay in top shape! 🍊💪",
@@ -35,7 +35,7 @@
   },
   {
     "name": "juice_3",
-    "cronExpression": "0 22 * * Wed,Fri",
+    "cronExpression": "0 22 * * 3,5",
     "guildId": 218690473953329152,
     "channelId": 475377868738920448,
     "text": "<@&572540171678121984> Keep your immune system strong! Grab a glass of juice NOW! 🍊🌟",
