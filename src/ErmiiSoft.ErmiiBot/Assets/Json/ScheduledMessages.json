@@ -49,5 +49,48 @@
       "Juice/dragon-ball.jpg"
     ],
     "notes": ""
+  },
+  {
+    "name": "water_haruhi",
+    "cronExpression": "0 10 * * 1",
+    "guildId": 218690473953329152,
+    "channelId": 475377868738920448,
+    "text": "<@&572540171678121984> Hey Kyon, even you should know that staying hydrated is important! Drink your water now or you'll get a penalty! 💧😾",
+    "files": [
+      "Water/haruhi1.gif",
+      "Water/haruhi2.jpg"
+    ],
+    "notes": ""
+  },
+  {
+    "name": "water_gigachad",
+    "cronExpression": "0 10 * * 5,0",
+    "guildId": 218690473953329152,
+    "channelId": 475377868738920448,
+    "text": "<@&572540171678121984> Why yes, it's real water hours. Drink your water and stay hydrated. Always takes care of your health. 💧💪",
+    "files": [
+      "Water/gigachad1.jpg",
+      "Water/gigachad2.jpg"
+    ],
+    "notes": ""
+  },
+  {
+    "name": "water_generic",
+    "cronExpression": "0 10 * * 2,4,6",
+    "guildId": 218690473953329152,
+    "channelId": 475377868738920448,
+    "text": "<@&572540171678121984> It's real water hours. Drink and stay hydrated! 💧🚰'",
+    "files": [
+      "Water/generic1.jpg",
+      "Water/water-drink.gif",
+      "Water/trump.jpg",
+      "Water/cat.gif",
+      "Water/dwight.gif",
+      "Water/nagatoro.gif",
+      "Water/spongebob.gif",
+      "Water/shaq.jpg",
+      "Water/nagato.jpg"
+    ],
+    "notes": ""
   }
 ]
