@@ -103,5 +103,16 @@
       "Water/gun.png"
     ],
     "notes": ""
+  },
+  {
+    "name": "friday_night",
+    "cronExpression": "10 16 * * 5",
+    "guildId": 218690473953329152,
+    "channelId": 475377868738920448,
+    "text": "It's Friday night! 🎉 Time to relax and unwind after a long week. Enjoy your evening, everyone! 🍻🎊",
+    "files": [
+      "Friday/yakuza0.gif"
+    ],
+    "notes": ""
   }
 ]

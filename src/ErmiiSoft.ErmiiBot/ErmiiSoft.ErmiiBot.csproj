@@ -14,6 +14,9 @@
     <ProjectReference Include="..\ErmiiSoft.ErmiiBot.Commands\ErmiiSoft.ErmiiBot.Commands.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Assets\Images\Friday\yakuza0.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Images\Juice\dragon-ball.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
